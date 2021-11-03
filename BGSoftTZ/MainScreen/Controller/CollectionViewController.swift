@@ -12,8 +12,8 @@ class CollectionViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     // Константы для настройки размера ячейки
-    private let itemSpacing: CGFloat = 30
-    private let edgeInsets = UIEdgeInsets(top: 40, left: 30, bottom: 40, right: 30)
+    let itemSpacing: CGFloat = 25
+    let edgeInsets = UIEdgeInsets(top: 40, left: 25, bottom: 40, right: 25)
     
     
     override func viewDidLoad() {
@@ -50,21 +50,11 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDa
     
 }
 
-// MARK: - Setup
+// MARK: - Setup Collection View
 
 extension CollectionViewController: UICollectionViewDelegateFlowLayout {
     
-    private func setupCollectionView() {
-        
-        // Указываем направление скролинга
-        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.scrollDirection = .horizontal
-        }
-        
-        // Настраиваем CollecitonView
-        collectionView.showsHorizontalScrollIndicator = false
-        
-    }
+    // MARK: Collection View Cell Size
     
     // Настраиваем размер ячейки
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -86,11 +76,11 @@ extension CollectionViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return edgeInsets.left
+        return edgeInsets.left * 2
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return edgeInsets.left
+        return edgeInsets.left * 2
     }
 }
 

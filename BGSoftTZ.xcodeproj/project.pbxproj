@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B0A96972733357000522E92 /* CollectionVC + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0A96962733357000522E92 /* CollectionVC + Extension.swift */; };
 		8B0BED0627331D790035F658 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0BED0427331D790035F658 /* CollectionViewCell.swift */; };
 		8B0BED0727331D790035F658 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B0BED0527331D790035F658 /* CollectionViewCell.xib */; };
 		8B45EA432731C5A200C5AA49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B45EA422731C5A200C5AA49 /* AppDelegate.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8B0A96962733357000522E92 /* CollectionVC + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionVC + Extension.swift"; sourceTree = "<group>"; };
 		8B0BED0427331D790035F658 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		8B0BED0527331D790035F658 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		8B45EA3F2731C5A200C5AA49 /* BGSoftTZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BGSoftTZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,6 +43,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B0A96952733354F00522E92 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8B0A96962733357000522E92 /* CollectionVC + Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		8B0BED0927331D7D0035F658 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +151,7 @@
 		8BBA5A612732DD4700B284C2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8B0A96952733354F00522E92 /* Extension */,
 				8B0BED0927331D7D0035F658 /* Cell */,
 			);
 			path = View;
@@ -224,6 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B0A96972733357000522E92 /* CollectionVC + Extension.swift in Sources */,
 				8B45EA472731C5A200C5AA49 /* CollectionViewController.swift in Sources */,
 				8B45EA432731C5A200C5AA49 /* AppDelegate.swift in Sources */,
 				8B0BED0627331D790035F658 /* CollectionViewCell.swift in Sources */,
