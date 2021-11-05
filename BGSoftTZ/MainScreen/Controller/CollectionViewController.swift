@@ -19,12 +19,16 @@ class CollectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         // Регистрируем ячейку
         collectionView.register(CollectionViewCell.registerNib(), forCellWithReuseIdentifier: CollectionViewCell.cellIdentifier())
         
         // Настраиваем CollectionView
         setupCollectionView()
+        
+        // Check JSON
+        MainNetworkManager.getImages {
+            
+        }
     }
     
 }

@@ -16,6 +16,9 @@
 		8B45EA4A2731C5A200C5AA49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B45EA482731C5A200C5AA49 /* Main.storyboard */; };
 		8B45EA4C2731C5AA00C5AA49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B45EA4B2731C5AA00C5AA49 /* Assets.xcassets */; };
 		8B45EA4F2731C5AA00C5AA49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B45EA4D2731C5AA00C5AA49 /* LaunchScreen.storyboard */; };
+		8BF3004B27356CE300FA534A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF3004A27356CE300FA534A /* NetworkManager.swift */; };
+		8BF3005127356EB300FA534A /* MainNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF3005027356EB300FA534A /* MainNetworkManager.swift */; };
+		8BF30055273575B900FA534A /* MainNeworkManagerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF30054273575B900FA534A /* MainNeworkManagerResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		8B45EA4B2731C5AA00C5AA49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B45EA4E2731C5AA00C5AA49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B45EA502731C5AA00C5AA49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BF3004A27356CE300FA534A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		8BF3005027356EB300FA534A /* MainNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNetworkManager.swift; sourceTree = "<group>"; };
+		8BF30054273575B900FA534A /* MainNeworkManagerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNeworkManagerResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +98,7 @@
 				8B45EA5A2731CF6B00C5AA49 /* Model */,
 				8B45EA592731CF6700C5AA49 /* View */,
 				8B45EA582731CF6100C5AA49 /* Controller */,
+				8BF3004927356CC400FA534A /* NetworkManager */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -127,6 +134,7 @@
 				8BBA5A622732DD4C00B284C2 /* Model */,
 				8BBA5A612732DD4700B284C2 /* View */,
 				8BBA5A602732DD3C00B284C2 /* Controller */,
+				8BF3004E27356E7C00FA534A /* MainNetworkManager */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
@@ -151,6 +159,7 @@
 		8BBA5A612732DD4700B284C2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8BF300532735756900FA534A /* Response */,
 				8B0A96952733354F00522E92 /* Extension */,
 				8B0BED0927331D7D0035F658 /* Cell */,
 			);
@@ -162,6 +171,30 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		8BF3004927356CC400FA534A /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				8BF3004A27356CE300FA534A /* NetworkManager.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		8BF3004E27356E7C00FA534A /* MainNetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				8BF3005027356EB300FA534A /* MainNetworkManager.swift */,
+			);
+			path = MainNetworkManager;
+			sourceTree = "<group>";
+		};
+		8BF300532735756900FA534A /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				8BF30054273575B900FA534A /* MainNeworkManagerResponse.swift */,
+			);
+			path = Response;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,11 +268,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BF3004B27356CE300FA534A /* NetworkManager.swift in Sources */,
 				8B0A96972733357000522E92 /* CollectionVC + Extension.swift in Sources */,
 				8B45EA472731C5A200C5AA49 /* CollectionViewController.swift in Sources */,
 				8B45EA432731C5A200C5AA49 /* AppDelegate.swift in Sources */,
 				8B0BED0627331D790035F658 /* CollectionViewCell.swift in Sources */,
 				8B45EA452731C5A200C5AA49 /* SceneDelegate.swift in Sources */,
+				8BF3005127356EB300FA534A /* MainNetworkManager.swift in Sources */,
+				8BF30055273575B900FA534A /* MainNeworkManagerResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

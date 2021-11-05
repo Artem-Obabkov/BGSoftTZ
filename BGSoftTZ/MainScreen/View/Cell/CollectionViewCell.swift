@@ -27,6 +27,7 @@ class CollectionViewCell: UICollectionViewCell {
         return "CollectionViewCell"
     }
     
+    
     // Настраиваем дизайн ячейки
     func setupCellDesign() {
         let cornerRadius: CGFloat = 25
