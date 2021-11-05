@@ -26,11 +26,10 @@ class CollectionViewController: UIViewController {
         setupCollectionView()
         
         // Check JSON
-        MainNetworkManager.getImages {
-            
+        MainNetworkManager.getImages { (response) in
+            print(response?.users.count)
         }
     }
-    
 }
 
 // MARK: - UICollectionViewDelegate UICollectionViewDataSource

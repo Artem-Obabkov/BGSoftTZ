@@ -10,6 +10,27 @@ import Foundation
 class MainNeworkManagerResponse {
     
     // Помещаем пользователей сюда
-    //static let
+    let users: [User]
     
+    init?(json: Any) {
+        
+        // Преобразовываем JSON в словарь типа [String: Any]
+        guard let jsonUsersArray = json as? [String: Any] else { return nil }
+        
+        var _users = [User]()
+        
+        // Перебираем всех пользователей и инициализируем пользователя
+        for jsonDict in jsonUsersArray {
+            
+           // Создаем пользователя
+            guard
+                let userJson = jsonDict.value as? [String: Any],
+                let user = User(json: userJson)
+            else { continue }
+            
+            _users.append(user)
+        }
+        
+        self.users = _users
+    }
 }

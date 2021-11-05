@@ -35,8 +35,10 @@ class NetworkManager {
                 // Извлекаем JSON
                 let json = try JSONSerialization.jsonObject(with: data, options: [])
                 
-                // Передаем данные в клоужер
-                completion(json)
+                DispatchQueue.main.async {
+                    // Передаем данные в клоужер
+                    completion(json)
+                }
                 
             } catch let error {
                 print(error.localizedDescription)

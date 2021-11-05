@@ -19,6 +19,7 @@
 		8BF3004B27356CE300FA534A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF3004A27356CE300FA534A /* NetworkManager.swift */; };
 		8BF3005127356EB300FA534A /* MainNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF3005027356EB300FA534A /* MainNetworkManager.swift */; };
 		8BF30055273575B900FA534A /* MainNeworkManagerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF30054273575B900FA534A /* MainNeworkManagerResponse.swift */; };
+		8BF30058273576A400FA534A /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF30057273576A400FA534A /* UserModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		8BF3004A27356CE300FA534A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		8BF3005027356EB300FA534A /* MainNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNetworkManager.swift; sourceTree = "<group>"; };
 		8BF30054273575B900FA534A /* MainNeworkManagerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNeworkManagerResponse.swift; sourceTree = "<group>"; };
+		8BF30057273576A400FA534A /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 		8BBA5A622732DD4C00B284C2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8BF30057273576A400FA534A /* UserModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				8B0BED0627331D790035F658 /* CollectionViewCell.swift in Sources */,
 				8B45EA452731C5A200C5AA49 /* SceneDelegate.swift in Sources */,
 				8BF3005127356EB300FA534A /* MainNetworkManager.swift in Sources */,
+				8BF30058273576A400FA534A /* UserModel.swift in Sources */,
 				8BF30055273575B900FA534A /* MainNeworkManagerResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
