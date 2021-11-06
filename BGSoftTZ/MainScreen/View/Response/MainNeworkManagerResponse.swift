@@ -9,8 +9,9 @@ import Foundation
 
 class MainNeworkManagerResponse {
     
-    // Помещаем пользователей сюда
+    // Помещаем данные пользователей сюда
     let users: [User]
+    
     
     init?(json: Any) {
         
@@ -31,6 +32,10 @@ class MainNeworkManagerResponse {
             _users.append(user)
         }
         
-        self.users = _users
+        
+        // Сортируем массив по имени пользователя userName
+        let sortedUsers = _users.sorted { $0.userName! < $1.userName! }
+        
+        self.users = sortedUsers
     }
 }

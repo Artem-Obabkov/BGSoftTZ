@@ -11,11 +11,12 @@ class CollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
     
     // Функции для регистрации nib
@@ -49,8 +50,28 @@ class CollectionViewCell: UICollectionViewCell {
         self.layer.shouldRasterize  = true
         self.layer.rasterizationScale = UIScreen.main.scale
         
+        activityIndicator.startAnimating()
+        activityIndicator.hidesWhenStopped = true
     }
     
     // Присваиваем данные ячейке
-
+    func setupUser(with user: User) {
+        
+        // Проверяем данные
+        guard
+            let userName = user.userName
+        else { return }
+        
+        // Присваиваем данные
+        self.authorLabel.text = userName
+        
+        // Если данные о изображении есть, то присваиваем их и останавливаем индикатор в противном случае присваиваем UIImage()
+        if let imageData = user.imageData {
+            self.activityIndicator.stopAnimating()
+            self.imageView.image = UIImage(data: imageData)
+        } else {
+            self.imageView.image = UIImage()
+        }
+        
+    }
 }

@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="343" height="837"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="257-kq-brC">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="257-kq-brC">
                         <rect key="frame" x="0.0" y="0.0" width="343" height="837"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </imageView>
@@ -29,6 +29,16 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="fs9-po-P85">
+                        <rect key="frame" x="153" y="400" width="37" height="37"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="37" id="m4S-q6-rif"/>
+                            <constraint firstAttribute="height" constant="37" id="yaO-UT-Qce"/>
+                        </constraints>
+                        <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </activityIndicatorView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
@@ -40,9 +50,12 @@
                 <constraint firstItem="257-kq-brC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="dx2-yF-dfM"/>
                 <constraint firstAttribute="bottom" secondItem="8Wn-6W-5c0" secondAttribute="bottom" constant="64" id="kvH-5g-vHC"/>
                 <constraint firstAttribute="trailing" secondItem="257-kq-brC" secondAttribute="trailing" id="mg0-NJ-I1X"/>
+                <constraint firstItem="fs9-po-P85" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="nZw-wl-aIQ"/>
+                <constraint firstItem="fs9-po-P85" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="yY1-HV-cTg"/>
             </constraints>
             <size key="customSize" width="343" height="837"/>
             <connections>
+                <outlet property="activityIndicator" destination="fs9-po-P85" id="JWo-4C-LdM"/>
                 <outlet property="authorLabel" destination="8Wn-6W-5c0" id="yyn-GE-1q0"/>
                 <outlet property="imageView" destination="257-kq-brC" id="prO-Oh-A27"/>
             </connections>

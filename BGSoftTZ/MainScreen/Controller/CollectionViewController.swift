@@ -15,6 +15,9 @@ class CollectionViewController: UIViewController {
     let itemSpacing: CGFloat = 25
     let edgeInsets = UIEdgeInsets(top: 40, left: 25, bottom: 40, right: 25)
     
+    // Данные пользователей (как в JSON)
+    var users = [User]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +28,13 @@ class CollectionViewController: UIViewController {
         // Настраиваем CollectionView
         setupCollectionView()
         
-        // Check JSON
-        MainNetworkManager.getImages { (response) in
-            print(response?.users.count)
+        // Получаем данные
+        MainNetworkManager.shared.getImages { [weak self] (response) in
+            guard let response = response else { return }
+            self?.users = response.users
+            
+            // Загружаем фотографии
+            self?.showImages(from: response)
         }
     }
 }
@@ -38,16 +45,22 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDa
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return users.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.cellIdentifier(), for: indexPath) as! CollectionViewCell
         
-        cell.setupCellDesign()
-        cell.authorLabel.text = "HelloHelloHello"
+        // Получаем пользователя
+        let user = users[indexPath.row]
         
+        // Настраиваем ячейку
+        cell.setupCellDesign()
+        cell.setupUser(with: user)
+        
+        
+    
         return cell
     }
     

@@ -12,10 +12,10 @@ import UIKit
 
 extension CollectionViewController {
     
-    // MARK: Collection View Design
     
+    // MARK: Дизайн Collection View
+
     func setupCollectionView() {
-        
         // Указываем направление скролинга
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .horizontal
@@ -25,6 +25,7 @@ extension CollectionViewController {
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isPagingEnabled = true
     }
+    
     
     // Позволяет применить паралакс эффект
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -61,7 +62,29 @@ extension CollectionViewController {
                 cell.transform = CGAffineTransform(scaleX: scaleX, y: scaleX)
             }
         }
-        
     }
     
+    // MARK: - Показ изображений по мере загрузки
+    
+    func showImages(from users: MainNeworkManagerResponse) {
+        
+        // Загружаем фотографии
+        DispatchQueue.main.async {
+
+            //var _users = [User]()
+
+            for (index,user) in users.users.enumerated() {
+                
+                MainNetworkManager.shared.downloadImage(with: user.imageUrl!) { (data) in
+
+                    // Присваиваем данные
+                    user.imageData = data
+                    self.users[index].imageData = user.imageData
+                    
+                    // Обновляем collectionView
+                    self.collectionView.reloadData()
+                }
+            }
+        }
+    }
 }
