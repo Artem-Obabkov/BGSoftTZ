@@ -70,9 +70,8 @@ extension CollectionViewController {
         
         // Загружаем фотографии
         DispatchQueue.main.async {
-
-            //var _users = [User]()
-
+            
+            // Короче здесь образуется race condition и я не знаю как решить эту проблему, я потратил часа 4 пытаясь заставить это все работать как надо, но безуспешно. 
             for (index,user) in users.users.enumerated() {
                 
                 MainNetworkManager.shared.downloadImage(with: user.imageUrl!) { (data) in
