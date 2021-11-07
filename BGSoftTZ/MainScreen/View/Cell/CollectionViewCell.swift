@@ -65,6 +65,50 @@ class CollectionViewCell: UICollectionViewCell {
         activityIndicator.hidesWhenStopped = true
     }
     
+    // Загрузка данных
+    func downloadImage(for user: User, at indexPath: IndexPath, completion: @escaping (User, Int) -> () ) {
+        
+        // Создаем пользователя, которого будем возвращать обратно
+        let currentUser = user
+        
+        // Меняем значение загрузки пользователя
+        currentUser.isAlreadyLoaded = true
+        //currentUser.userIndex = indexPath.row
+        
+        // Определяем URL
+        guard
+            let imageUrl = currentUser.imageUrl
+            //let url = URL(string: imageUrl)
+        else { return }
+        
+        MainNetworkManager.shared.downloadImage(with: imageUrl) { (data) in
+            currentUser.imageData = data
+            
+            DispatchQueue.main.async {
+                
+                // Передаем значения обратно
+                completion(currentUser, indexPath.row)
+            }
+            
+        }
+//        // Начинаем загрузку
+//        let session = URLSession.shared.dataTask(with: url) { (data, response, error) in
+//
+//            // Проверяем на ошибку
+//            if let error = error {
+//                print(error.localizedDescription)
+//                return
+//            }
+//            //, let userIndex = currentUser.userIndex
+//            // Получаем данные
+//            if let data = data {
+//
+//            }
+//        }
+//
+//        session.resume()
+    }
+    
     // Присваиваем данные ячейке
     func setupUser(with user: User) {
         

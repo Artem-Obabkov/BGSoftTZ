@@ -36,9 +36,10 @@ class CollectionViewController: UIViewController {
         MainNetworkManager.shared.getImages { [weak self] (response) in
             guard let response = response else { return }
             self?.users = response.users
+            self?.collectionView.reloadData()
             
             // Загружаем фотографии
-            self?.showImages(from: response)
+            //self?.showImages(from: response)
         }
     }
 }
@@ -61,6 +62,23 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDa
         
         // Настраиваем ячейку
         cell.setupCellDesign(isPressed: user.isPressed)
+        
+        // Ячейка начинает загрузку при условии, что до этого загрузки не было
+        if !user.isAlreadyLoaded {
+            
+            // Вызываем функцию загрузки ячейки 
+            cell.downloadImage(for: user, at: indexPath) { user, currentIndex in
+                
+                print("Loaded at index: \(currentIndex)")
+                
+                // Проверяем имя на ячейке и имя пользователя, которое мы хотим присвоить и если они совпадают, то мы находимся в нужном месте.
+                if self.users[indexPath.row].userName == user.userName {
+                    
+                    self.users[currentIndex] = user
+                    self.collectionView.reloadData()
+                }
+            }
+        }
         
         cell.setupUser(with: user)
         

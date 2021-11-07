@@ -191,6 +191,12 @@ extension CollectionViewController {
             
             // Удаляем ячейку
             self?.collectionView.performBatchUpdates {
+                
+                // Если изображение еще не загружено, то вы не можете его удалить.
+                if self?.users[indexPath.row].imageData == nil {
+                    return
+                }
+                
                 self?.users.remove(at: indexPath.row)
                 self?.collectionView.deleteItems(at: [indexPath])
             }

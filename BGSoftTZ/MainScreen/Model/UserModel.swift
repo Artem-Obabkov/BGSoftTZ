@@ -13,11 +13,14 @@ class User {
     var userUrl: String?
     var photoUrl: String?
     var colors: [String]?
+    var userIndex: Int?
     
     var imageUrl: String?
     var imageData: Data?
+    var isAlreadyLoaded: Bool = false
     
     var isPressed: Bool = false
+    
     
     init?(json: [String: Any]) {
         
