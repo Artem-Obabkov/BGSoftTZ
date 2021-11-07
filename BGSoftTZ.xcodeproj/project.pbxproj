@@ -20,6 +20,7 @@
 		8BF3005127356EB300FA534A /* MainNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF3005027356EB300FA534A /* MainNetworkManager.swift */; };
 		8BF30055273575B900FA534A /* MainNeworkManagerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF30054273575B900FA534A /* MainNeworkManagerResponse.swift */; };
 		8BF30058273576A400FA534A /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF30057273576A400FA534A /* UserModel.swift */; };
+		8BF300602738150C00FA534A /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF3005F2738150C00FA534A /* UIView + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		8BF3005027356EB300FA534A /* MainNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNetworkManager.swift; sourceTree = "<group>"; };
 		8BF30054273575B900FA534A /* MainNeworkManagerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNeworkManagerResponse.swift; sourceTree = "<group>"; };
 		8BF30057273576A400FA534A /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		8BF3005F2738150C00FA534A /* UIView + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 		8B45EA592731CF6700C5AA49 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8BF3005A27380A5000FA534A /* Extensions */,
 				8B45EA482731C5A200C5AA49 /* Main.storyboard */,
 				8B45EA4D2731C5AA00C5AA49 /* LaunchScreen.storyboard */,
 			);
@@ -200,6 +203,14 @@
 			path = Response;
 			sourceTree = "<group>";
 		};
+		8BF3005A27380A5000FA534A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8BF3005F2738150C00FA534A /* UIView + Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -279,6 +290,7 @@
 				8B45EA452731C5A200C5AA49 /* SceneDelegate.swift in Sources */,
 				8BF3005127356EB300FA534A /* MainNetworkManager.swift in Sources */,
 				8BF30058273576A400FA534A /* UserModel.swift in Sources */,
+				8BF300602738150C00FA534A /* UIView + Extension.swift in Sources */,
 				8BF30055273575B900FA534A /* MainNeworkManagerResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -30,7 +30,18 @@ class CollectionViewCell: UICollectionViewCell {
     
     
     // Настраиваем дизайн ячейки
-    func setupCellDesign() {
+    func setupCellDesign(isPressed: Bool) {
+        
+        if isPressed {
+            
+            self.layer.shadowColor = UIColor.clear.cgColor
+            self.layer.shadowOpacity = 0
+            self.layer.shadowOffset = CGSize(width: 0, height: 0)
+            self.layer.shadowRadius = 0
+            
+            return
+        }
+        
         let cornerRadius: CGFloat = 25
         
         self.imageView.layer.cornerRadius = cornerRadius

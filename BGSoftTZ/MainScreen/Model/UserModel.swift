@@ -17,6 +17,8 @@ class User {
     var imageUrl: String?
     var imageData: Data?
     
+    var isPressed: Bool = false
+    
     init?(json: [String: Any]) {
         
         guard

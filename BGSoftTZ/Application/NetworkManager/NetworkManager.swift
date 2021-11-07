@@ -36,6 +36,7 @@ class NetworkManager {
                 let json = try JSONSerialization.jsonObject(with: data, options: [])
                 
                 DispatchQueue.main.async {
+                    
                     // Передаем данные в клоужер
                     completion(json)
                 }

@@ -15,6 +15,9 @@ class CollectionViewController: UIViewController {
     let itemSpacing: CGFloat = 25
     let edgeInsets = UIEdgeInsets(top: 40, left: 25, bottom: 40, right: 25)
     
+    // Определяет нажата ли ячейка
+    private var shouldUnhilight = true
+    
     // Данные пользователей (как в JSON)
     var users = [User]()
     
@@ -27,6 +30,7 @@ class CollectionViewController: UIViewController {
         
         // Настраиваем CollectionView
         setupCollectionView()
+        setupLongPressGesture()
         
         // Получаем данные
         MainNetworkManager.shared.getImages { [weak self] (response) in
@@ -56,14 +60,81 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDa
         let user = users[indexPath.row]
         
         // Настраиваем ячейку
-        cell.setupCellDesign()
+        cell.setupCellDesign(isPressed: user.isPressed)
+        
         cell.setupUser(with: user)
         
-        
-    
         return cell
     }
     
+}
+
+// MARK: - Gestures
+
+extension CollectionViewController: UIGestureRecognizerDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        
+        // Определяем ячейку
+        if let cell = collectionView.cellForItem(at: indexPath) {
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(50)) {
+                // Вызываем обновление дизайна с анимацией
+                UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut) { [weak self] in
+                    
+                    self?.updateCellDesign(for: cell, isPressed: true, indexPath: indexPath)
+                    
+                    self?.users[indexPath.row].isPressed = true
+                }
+            }
+        }
+    }
+    
+    internal func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+        
+        // Определяем ячейку
+        guard let cell = collectionView.cellForItem(at: indexPath) else { return }
+        
+        // Проверяем должна ли ячейка вернуться в свое номарльное состояние
+        if shouldUnhilight {
+            
+            // Вызываем обновление дизайна с анимацией
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(400)) {
+                UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseInOut) { [weak self] in
+                    
+                    self?.updateCellDesign(for: cell, isPressed: false, indexPath: indexPath)
+                    
+                    self?.users[indexPath.row].isPressed = false
+                }
+            }
+            
+        }
+        
+    }
+    
+    // Метод, отвечающий за логику после нажатия
+    @objc func handleLongPress(gestureRecogniser: UILongPressGestureRecognizer) {
+        
+        // Если мы отменили жест, то все возвращается в нормальное положение
+        if gestureRecogniser.state == .cancelled {
+            self.shouldUnhilight = true
+        }
+        
+        // В противном случае мы начинаем прорисовку нажатой ячейки
+        guard gestureRecogniser.state == .began else { return }
+        self.shouldUnhilight = false
+        
+        // Определяем ячейку, в которой произошло нажатие
+        let position = gestureRecogniser.location(in: collectionView)
+        
+        // Определяем indexPath
+        if let indexPath = collectionView.indexPathForItem(at: position) {
+            
+            print("Index of cell: \(indexPath)")
+            // Вызываем alert
+            createAlert(with: "Дополнительные действия", message: "Здесь можно удалить фотографию", indexPath: indexPath)
+        }
+    }
 }
 
 // MARK: - Setup Collection View
