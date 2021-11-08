@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -44,14 +45,68 @@
                     <navigationItem key="navigationItem" title="Gallery" id="Pi7-pZ-0Gw"/>
                     <connections>
                         <outlet property="collectionView" destination="6gs-aL-oIG" id="P6c-9o-mu1"/>
+                        <segue destination="bA2-ey-d6l" kind="show" identifier="ShowWebViewController" id="UUs-Tm-8yQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="93.75"/>
         </scene>
+        <!--Web View Controller-->
+        <scene sceneID="2RQ-MP-X3S">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="bA2-ey-d6l" customClass="WebViewController" customModule="BGSoftTZ" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nuy-Os-Lkx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dOf-dT-bm9">
+                                <rect key="frame" x="0.0" y="82" width="414" height="814"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kr9-9j-Bze">
+                                <rect key="frame" x="20" y="44" width="35" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="4Sa-jL-AlJ"/>
+                                    <constraint firstAttribute="height" constant="30" id="Hw2-Nk-UyY"/>
+                                </constraints>
+                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="arrow.left" catalog="system" symbolScale="large" renderingMode="template"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="22" weight="regular"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBackAction:" destination="bA2-ey-d6l" eventType="touchUpInside" id="FfP-uK-Clx"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="FdO-Wd-7e3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dOf-dT-bm9" firstAttribute="leading" secondItem="FdO-Wd-7e3" secondAttribute="leading" id="1BA-57-pjN"/>
+                            <constraint firstItem="Kr9-9j-Bze" firstAttribute="top" secondItem="FdO-Wd-7e3" secondAttribute="top" id="5Jw-G8-xYt"/>
+                            <constraint firstItem="dOf-dT-bm9" firstAttribute="trailing" secondItem="FdO-Wd-7e3" secondAttribute="trailing" id="C7m-Ke-ys4"/>
+                            <constraint firstItem="dOf-dT-bm9" firstAttribute="top" secondItem="Kr9-9j-Bze" secondAttribute="bottom" constant="8" symbolic="YES" id="ffw-ka-rJT"/>
+                            <constraint firstAttribute="bottom" secondItem="dOf-dT-bm9" secondAttribute="bottom" id="sYD-GF-96E"/>
+                            <constraint firstItem="Kr9-9j-Bze" firstAttribute="leading" secondItem="FdO-Wd-7e3" secondAttribute="leading" constant="20" id="yXv-sA-rqN"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="QQI-gz-tJv"/>
+                    <connections>
+                        <outlet property="webView" destination="dOf-dT-bm9" id="3UY-R8-hMG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7ee-kR-N20" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1800.0000000000002" y="93.75"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="arrow.left" catalog="system" width="128" height="98"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

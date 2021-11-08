@@ -18,6 +18,10 @@ class CollectionViewController: UIViewController {
     // Определяет нажата ли ячейка
     private var shouldUnhilight = true
     
+    // Переменные для передачи в WebView
+    private var urlString: String?
+    private var indexPath: IndexPath?
+    
     // Данные пользователей (как в JSON)
     var users = [User]()
     
@@ -88,8 +92,6 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDa
             // Вызываем функцию загрузки ячейки 
             cell.downloadImage(for: user, at: indexPath) { user, currentIndex in
                 
-                print("Loaded image at index: \(currentIndex)", user.imageData)
-                
                 // Проверяем имя на ячейке и имя пользователя, которое мы хотим присвоить и если они совпадают, то мы находимся в нужном месте.
                 if self.users[indexPath.row].userName == user.userName {
                     
@@ -99,7 +101,8 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDa
             }
         }
         
-        cell.setupUser(with: user)
+        cell.delegate = self
+        cell.setupUser(with: user, for: indexPath)
         
         return cell
     }
@@ -141,7 +144,7 @@ extension CollectionViewController: UIGestureRecognizerDelegate {
         // Определяем ячейку
         if let cell = collectionView.cellForItem(at: indexPath), user.imageData != nil {
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(50)) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100)) {
                 // Вызываем обновление дизайна с анимацией
                 UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut) { [weak self] in
                     
@@ -203,6 +206,26 @@ extension CollectionViewController: UIGestureRecognizerDelegate {
     }
 }
 
+// MARK: - Передаем данные с карточки на WebViewController
+extension CollectionViewController: CollectionViewCellDelegate {
+    
+    func getUrl(urlString: String, for indexPath: IndexPath) {
+        self.indexPath = indexPath
+        self.urlString = urlString
+        
+        performSegue(withIdentifier: "ShowWebViewController", sender: nil)
+    }
+    
+    // Подготавливаем для передачи
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard segue.identifier == "ShowWebViewController" else { return }
+        let destinationVC = segue.destination as! WebViewController
+        destinationVC.urlString = self.urlString
+    }
+    
+}
+
 // MARK: - Setup Collection View
 
 extension CollectionViewController: UICollectionViewDelegateFlowLayout {
@@ -236,4 +259,5 @@ extension CollectionViewController: UICollectionViewDelegateFlowLayout {
         return edgeInsets.left * 2
     }
 }
+
 

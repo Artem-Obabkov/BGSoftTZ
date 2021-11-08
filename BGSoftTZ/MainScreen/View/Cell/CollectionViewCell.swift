@@ -7,16 +7,51 @@
 
 import UIKit
 
+// Используем делегирование, что бы передать данные
+protocol CollectionViewCellDelegate {
+    func getUrl(urlString: String, for indexPath: IndexPath)
+}
+
 class CollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    @IBOutlet weak var checkUserProfile: UIButton!
+    @IBOutlet weak var checkPhotoURL: UIButton!
+    
+    var indexPath: IndexPath?
+    var user: User?
+    var urlString: String?
+    
+    // Передаем данные с помощью делегированияя
+    var delegate: CollectionViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
+    }
+    
+    @IBAction func checkUserProfileAction(_ sender: UIButton) {
+        guard
+            let indexPath = indexPath,
+            let user = user,
+            let userUrl = user.userUrl
+        else { return }
+        
+        self.delegate?.getUrl(urlString: userUrl, for: indexPath)
+        
+    }
+    
+    @IBAction func checkPhotoUrlAction(_ sender: UIButton) {
+        guard
+            let indexPath = indexPath,
+            let user = user,
+            let photoUrl = user.photoUrl
+        else { return }
+        
+        self.delegate?.getUrl(urlString: photoUrl, for: indexPath)
     }
     
     // Функции для регистрации nib
@@ -31,6 +66,9 @@ class CollectionViewCell: UICollectionViewCell {
     
     // Настраиваем дизайн ячейки
     func setupCellDesign(isPressed: Bool) {
+        
+        checkUserProfile.layer.cornerRadius = 15
+        checkPhotoURL.layer.cornerRadius = 15
         
         if isPressed {
             
@@ -91,7 +129,11 @@ class CollectionViewCell: UICollectionViewCell {
     }
     
     // Присваиваем данные ячейке
-    func setupUser(with user: User) {
+    func setupUser(with user: User, for indexPath: IndexPath) {
+        
+        // Присваиваем данные пользователя
+        self.user = user
+        self.indexPath = indexPath
         
         // Проверяем данные
         guard

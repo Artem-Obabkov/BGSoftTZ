@@ -21,6 +21,7 @@
 		8BF30055273575B900FA534A /* MainNeworkManagerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF30054273575B900FA534A /* MainNeworkManagerResponse.swift */; };
 		8BF30058273576A400FA534A /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF30057273576A400FA534A /* UserModel.swift */; };
 		8BF300602738150C00FA534A /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF3005F2738150C00FA534A /* UIView + Extension.swift */; };
+		8BF300682739455000FA534A /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF300672739455000FA534A /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		8BF30054273575B900FA534A /* MainNeworkManagerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNeworkManagerResponse.swift; sourceTree = "<group>"; };
 		8BF30057273576A400FA534A /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		8BF3005F2738150C00FA534A /* UIView + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
+		8BF300672739455000FA534A /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 			children = (
 				8B45EA572731CF5900C5AA49 /* Application */,
 				8B45EA5E2731CF7C00C5AA49 /* MainScreen */,
+				8BF30062273943C200FA534A /* WebScreen */,
 				8B45EA5F2731CF8700C5AA49 /* SupportingFiles */,
 			);
 			path = BGSoftTZ;
@@ -211,6 +214,38 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		8BF30062273943C200FA534A /* WebScreen */ = {
+			isa = PBXGroup;
+			children = (
+				8BF30065273943DE00FA534A /* Model */,
+				8BF30064273943D400FA534A /* View */,
+				8BF30063273943CF00FA534A /* Controller */,
+			);
+			path = WebScreen;
+			sourceTree = "<group>";
+		};
+		8BF30063273943CF00FA534A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8BF300672739455000FA534A /* WebViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8BF30064273943D400FA534A /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8BF30065273943DE00FA534A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -283,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BF3004B27356CE300FA534A /* NetworkManager.swift in Sources */,
+				8BF300682739455000FA534A /* WebViewController.swift in Sources */,
 				8B0A96972733357000522E92 /* CollectionVC + Extension.swift in Sources */,
 				8B45EA472731C5A200C5AA49 /* CollectionViewController.swift in Sources */,
 				8B45EA432731C5A200C5AA49 /* AppDelegate.swift in Sources */,

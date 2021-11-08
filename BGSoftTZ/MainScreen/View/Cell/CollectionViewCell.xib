@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -39,27 +40,64 @@
                         </constraints>
                         <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </activityIndicatorView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MiC-fb-OW5">
+                        <rect key="frame" x="20" y="20" width="303" height="36"/>
+                        <color key="backgroundColor" systemColor="systemGrayColor"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
+                        <state key="normal" title="Check user profile">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="titleShadowColor" systemColor="systemGrayColor"/>
+                        </state>
+                        <connections>
+                            <action selector="checkUserProfileAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="8mL-V2-okP"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0eh-Km-XT6">
+                        <rect key="frame" x="20" y="76" width="303" height="36"/>
+                        <color key="backgroundColor" systemColor="systemGrayColor"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
+                        <state key="normal" title="Check photo url">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="titleShadowColor" systemColor="systemGrayColor"/>
+                        </state>
+                        <connections>
+                            <action selector="checkPhotoUrlAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Rk1-hP-FZH"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="257-kq-brC" secondAttribute="bottom" id="4kP-ny-Wv8"/>
+                <constraint firstItem="MiC-fb-OW5" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="20" id="BCF-n9-tz2"/>
+                <constraint firstItem="0eh-Km-XT6" firstAttribute="top" secondItem="MiC-fb-OW5" secondAttribute="bottom" constant="20" id="FcJ-SA-0Ww"/>
+                <constraint firstAttribute="trailing" secondItem="MiC-fb-OW5" secondAttribute="trailing" constant="20" id="JGK-So-3fP"/>
                 <constraint firstAttribute="trailing" secondItem="8Wn-6W-5c0" secondAttribute="trailing" constant="32" id="JyN-5V-FxJ"/>
+                <constraint firstAttribute="trailing" secondItem="0eh-Km-XT6" secondAttribute="trailing" constant="20" id="MLg-qQ-aXF"/>
                 <constraint firstItem="8Wn-6W-5c0" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="32" id="SHN-3b-T51"/>
                 <constraint firstItem="257-kq-brC" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="a6k-Ia-ibH"/>
                 <constraint firstItem="257-kq-brC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="dx2-yF-dfM"/>
                 <constraint firstAttribute="bottom" secondItem="8Wn-6W-5c0" secondAttribute="bottom" constant="64" id="kvH-5g-vHC"/>
                 <constraint firstAttribute="trailing" secondItem="257-kq-brC" secondAttribute="trailing" id="mg0-NJ-I1X"/>
                 <constraint firstItem="fs9-po-P85" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="nZw-wl-aIQ"/>
+                <constraint firstItem="0eh-Km-XT6" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="vuy-SQ-uvX"/>
                 <constraint firstItem="fs9-po-P85" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="yY1-HV-cTg"/>
+                <constraint firstItem="MiC-fb-OW5" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="yln-6L-rG2"/>
             </constraints>
             <size key="customSize" width="343" height="837"/>
             <connections>
                 <outlet property="activityIndicator" destination="fs9-po-P85" id="JWo-4C-LdM"/>
                 <outlet property="authorLabel" destination="8Wn-6W-5c0" id="yyn-GE-1q0"/>
+                <outlet property="checkPhotoURL" destination="0eh-Km-XT6" id="9aA-C4-jIu"/>
+                <outlet property="checkUserProfile" destination="MiC-fb-OW5" id="Ude-QP-IvP"/>
                 <outlet property="imageView" destination="257-kq-brC" id="prO-Oh-A27"/>
             </connections>
             <point key="canvasLocation" x="341.304347826087" y="371.98660714285711"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
