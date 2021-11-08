@@ -32,7 +32,6 @@ class MainNeworkManagerResponse {
             _users.append(user)
         }
         
-        
         // Сортируем массив по имени пользователя userName
         let sortedUsers = _users.sorted { $0.userName! < $1.userName! }
         

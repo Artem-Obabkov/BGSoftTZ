@@ -129,12 +129,6 @@ extension CollectionViewController {
             // Убираем внутренние тени
             cell.contentView.removeAllShadows()
             
-//            // Устанавливаем дизайн
-//            let cornerRadius: CGFloat = 25
-//
-//            cell.imageView.layer.cornerRadius = cornerRadius
-//            cell.layer.cornerRadius = cornerRadius
-            
             // Создаем тень
             cell.layer.shadowColor = UIColor.black.cgColor
             cell.layer.shadowOpacity = 0.8
@@ -151,6 +145,23 @@ extension CollectionViewController {
             
         }
     }
+}
+
+// MARK: - Infinitive Scrolling Flow Layout
+
+extension CollectionViewController {
+    
+    func createFlowLayout() {
+        
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        flowLayout.minimumInteritemSpacing = itemSpacing
+        flowLayout.minimumLineSpacing = itemSpacing 
+        flowLayout.scrollDirection = .horizontal
+        collectionView.collectionViewLayout = flowLayout
+        
+    }
+    
 }
 
 
@@ -197,8 +208,38 @@ extension CollectionViewController {
                     return
                 }
                 
-                self?.users.remove(at: indexPath.row)
-                self?.collectionView.deleteItems(at: [indexPath])
+                // Если отображается всего 1 элемент, то протсо удаляем все
+                if self?.users.count == 3 {
+                    self?.users.removeAll()
+                    self?.collectionView.reloadData()
+                }
+                
+                // Если мы удаляем элемент с индексом 1, то мы так же должны удалить самый последний элемент и если мы удаляем предпоследний элемент, то мы должны удалить и элемент с индексом 0
+                switch indexPath.row {
+                    
+                case 1:
+                    
+                    let nextUser = self?.users[indexPath.row + 1]
+                    
+                    self?.users.remove(at: indexPath.row)
+                    self?.collectionView.deleteItems(at: [indexPath])
+                    
+                    self?.users[(self?.users.count)! - 1] = nextUser!
+                    self?.collectionView.reloadData()
+                    
+                case (self?.users.count)! - 2:
+                    
+                    let previosUser = self?.users[indexPath.row - 1]
+                    
+                    self?.users.remove(at: indexPath.row)
+                    self?.collectionView.deleteItems(at: [indexPath])
+                    
+                    self?.users[0] = previosUser!
+                    self?.collectionView.reloadData()
+
+                default:
+                    break
+                }
             }
         }
         

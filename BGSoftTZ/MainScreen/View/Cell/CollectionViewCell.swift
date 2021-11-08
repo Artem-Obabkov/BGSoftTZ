@@ -73,12 +73,10 @@ class CollectionViewCell: UICollectionViewCell {
         
         // Меняем значение загрузки пользователя
         currentUser.isAlreadyLoaded = true
-        //currentUser.userIndex = indexPath.row
         
         // Определяем URL
         guard
             let imageUrl = currentUser.imageUrl
-            //let url = URL(string: imageUrl)
         else { return }
         
         MainNetworkManager.shared.downloadImage(with: imageUrl) { (data) in
@@ -89,24 +87,7 @@ class CollectionViewCell: UICollectionViewCell {
                 // Передаем значения обратно
                 completion(currentUser, indexPath.row)
             }
-            
         }
-//        // Начинаем загрузку
-//        let session = URLSession.shared.dataTask(with: url) { (data, response, error) in
-//
-//            // Проверяем на ошибку
-//            if let error = error {
-//                print(error.localizedDescription)
-//                return
-//            }
-//            //, let userIndex = currentUser.userIndex
-//            // Получаем данные
-//            if let data = data {
-//
-//            }
-//        }
-//
-//        session.resume()
     }
     
     // Присваиваем данные ячейке
