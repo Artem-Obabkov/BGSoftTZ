@@ -102,7 +102,6 @@
 		8B45EA572731CF5900C5AA49 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				8B45EA5A2731CF6B00C5AA49 /* Model */,
 				8B45EA592731CF6700C5AA49 /* View */,
 				8B45EA582731CF6100C5AA49 /* Controller */,
 				8BF3004927356CC400FA534A /* NetworkManager */,
@@ -127,13 +126,6 @@
 				8B45EA4D2731C5AA00C5AA49 /* LaunchScreen.storyboard */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		8B45EA5A2731CF6B00C5AA49 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		8B45EA5E2731CF7C00C5AA49 /* MainScreen */ = {
@@ -217,8 +209,6 @@
 		8BF30062273943C200FA534A /* WebScreen */ = {
 			isa = PBXGroup;
 			children = (
-				8BF30065273943DE00FA534A /* Model */,
-				8BF30064273943D400FA534A /* View */,
 				8BF30063273943CF00FA534A /* Controller */,
 			);
 			path = WebScreen;
@@ -230,20 +220,6 @@
 				8BF300672739455000FA534A /* WebViewController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		8BF30064273943D400FA534A /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		8BF30065273943DE00FA534A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
